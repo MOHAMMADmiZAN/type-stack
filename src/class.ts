@@ -1,20 +1,19 @@
+import {cName, Person} from "./interface";
 
 
+export class Player implements Person<number>{
 
 
-export class Player{
-public name: string
- public age: number
- private readonly country : string
+    constructor(public name: string, public age: number, private readonly country:cName =cName.BD) {
 
- constructor(name: string, age: number) {
-    this.name = name
-     this.age = age
-     this.country = 'Bangladesh'
- }
+    }
+    getCountry(){
+        return this.country ;
+
+}
 
   public call(){
-      console.log(`${this.name} is a ${this.country} age of ${this.age}`)
+        console.log(`${this.name} is a ${this.country} age of ${this.age}`)
  }
 
 
