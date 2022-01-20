@@ -10,9 +10,10 @@ PlayerOne.call()
 PlayerTwo.call()
 
 
-let h1 = document.getElementById('tag') as HTMLElement
-let p = document.createElement('p')
 
+let h1 = document.getElementsByClassName('h1')
+
+let p = document.createElement('p')
 
 
 function image(options:ImageOption) {
@@ -25,29 +26,48 @@ function image(options:ImageOption) {
     return imgVariable
 
 }
-
-
 let img = image({
-    weight:"200px",
-    height:"200px",
-    src: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-    alt:"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+    weight:"600px",
+    height:"300px",
+    src: "https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png",
+    alt:"https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png"
 })
 
+// counter up plugin
+let counterUp : Function
+
+counterUp = (c:HTMLCollection,t:number) => {
 
 
 
+    for ( let v of c){
+      let n = parseInt(v.innerHTML)
+        let i = 0
+        setInterval(()=>{
+            if (i<=n){
+            v.innerHTML = i.toString()
+                i++
+
+        }
+        },t)
+   }
+}
+
+counterUp(h1,1000)
 
 
-p.innerHTML = `${Name} is ${Age} Years Old`
-h1.after(p)
+
+// p.innerHTML =
+console.log(h1)
 p.after(img)
 
 p.addEventListener('click',()=>{
     setTimeout(()=>img.remove(),1000)
 })
 
-h1.style.color = 'Green';
+
+
+
 
 
 
