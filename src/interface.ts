@@ -15,3 +15,8 @@ export interface Person<T extends number> {
  export enum cName {
     BD = "Bangladesh"
 }
+ type CounterUp=(string | HTMLCollection)
+ export interface CounterUpOptions{
+    c:CounterUp,
+    t:number
+}

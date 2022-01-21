@@ -1,68 +1,115 @@
 import {Player} from "./class";
-import {Age, Name} from "./hope";
-import {ImageOption} from "./interface";
 
-let PlayerOne = new Player('Sakib',25)
+import {CounterUpOptions, ImageOption} from "./interface";
 
-const PlayerTwo = new Player('Tamim',28)
+let PlayerOne = new Player('Sakib', 25)
+
+const PlayerTwo = new Player('Tamim', 28)
 
 PlayerOne.call()
 PlayerTwo.call()
 
 
-
-let h1 = document.getElementsByClassName('h1')
+let ho = document.getElementsByClassName('ho')
 
 let p = document.createElement('p')
 
 
-function image(options:ImageOption) {
+function image(options: ImageOption) {
     const imgVariable = document.createElement('img')
-    imgVariable.style.width =options.weight
-    imgVariable.style.height =options.height
-    imgVariable.src =options.src
+    imgVariable.style.width = options.weight
+    imgVariable.style.height = options.height
+    imgVariable.src = options.src
     imgVariable.alt = options.alt
 
     return imgVariable
 
 }
+
 let img = image({
-    weight:"600px",
-    height:"300px",
+    weight: "600px",
+    height: "300px",
     src: "https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png",
-    alt:"https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png"
+    alt: "https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png"
 })
 
-// counter up plugin
-let counterUp : Function
-
-counterUp = (c:HTMLCollection,t:number) => {
-
-
-
-    for ( let v of c){
-      let n = parseInt(v.innerHTML)
-        let i = 0
-        setInterval(()=>{
-            if (i<=n){
-            v.innerHTML = i.toString()
-                i++
+// counter-up plugin made in Typescript
+let counterUp: Function
+// recursive way
+counterUp = (options:CounterUpOptions) => {
+    try {
+        if (typeof options.c == 'string') {
+            options.c = document.getElementsByClassName(options.c)
+        }
+        for (let v of options.c) {
+            let n = parseInt(v.innerHTML)
+            let i = 0
+            function cal() {
+                if (i <= n) {
+                    setTimeout(() => {
+                        v.innerHTML = i.toString()
+                        i++
+                        return cal()
+                    }, options.t)
+                }
+            }
+            cal()
 
         }
-        },t)
-   }
+
+    } catch (e) {
+        console.log(new Error('Error in counter Function'))
+    }
 }
+let ps = document.getElementsByClassName('ho')
 
-counterUp(h1,1000)
+counterUp({c:'h1',t:1000})
+counterUp({c:ps,t:500})
 
 
 
-// p.innerHTML =
-console.log(h1)
-p.after(img)
+let btn = document.getElementById('btn')
 
-p.addEventListener('click',()=>{
-    setTimeout(()=>img.remove(),1000)
+
+ // recursive way
+ function increment() {
+     let box = document.getElementById('box_c')
+     let width= box.style.width.split('%')
+     if (parseInt(width[0])<100){
+        setTimeout(() =>{
+            box.style.width = String(parseInt(width[0])+5)+'%'
+            return increment()
+        },1000)
+     }else{
+         let reset = document.createElement('button')
+         reset.style.cssText = `
+         padding: 10px 15px;
+         margin-left: 10px;
+         background-color: gray;
+         outline: none;
+         border-radius: 5px;
+         border:none;
+         cursor: pointer;
+         `
+         reset.innerText = "Reset"
+         btn.after(reset)
+         reset.addEventListener('click',()=>{
+             box.style.width = '5%'
+             btn.removeAttribute('disabled',)
+             reset.remove()
+
+         })
+
+     }
+
+
+ }
+
+
+btn.addEventListener('click', function (e) {
+    e.preventDefault()
+    increment()
+    btn.setAttribute('disabled', 'true')
 })
 
 
