@@ -1,6 +1,6 @@
 import {Player} from "./class";
 
-import {CounterUpOptions, ImageOption} from "./interface";
+import {CounterUpOptions} from "./interface";
 
 let PlayerOne = new Player('Sakib', 25)
 
@@ -9,29 +9,6 @@ const PlayerTwo = new Player('Tamim', 28)
 PlayerOne.call()
 PlayerTwo.call()
 
-
-let ho = document.getElementsByClassName('ho')
-
-let p = document.createElement('p')
-
-
-function image(options: ImageOption) {
-    const imgVariable = document.createElement('img')
-    imgVariable.style.width = options.weight
-    imgVariable.style.height = options.height
-    imgVariable.src = options.src
-    imgVariable.alt = options.alt
-
-    return imgVariable
-
-}
-
-let img = image({
-    weight: "600px",
-    height: "300px",
-    src: "https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png",
-    alt: "https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png"
-})
 
 // counter-up plugin made in Typescript
 let counterUp: Function
