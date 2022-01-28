@@ -100,6 +100,69 @@ btn.addEventListener('click', function (e) {
     increment()
     btn.setAttribute('disabled', 'true')
 })
+console.log(window.location.origin)
+ let obj = {
+    1:"f",
+    2:"c",
+    5:"d",
+    3:"a",
+    7:"l",
+ }
+
+
+
+// objet value iterate //
+
+function objectValue(v:object,t?:number) {
+    let val = Object.entries(v)
+    let len = val.length
+    if (len >0){
+        setTimeout(() => {
+            console.log(val[0][1])
+              val = val.slice(1)
+            v = Object.fromEntries(val)
+            return objectValue(v,t)
+        },t)
+    }
+
+}
+objectValue(obj,1000)
+ // object index iterate //
+function objectIndex(v:object,t?:number) {
+    let val = Object.entries(v)
+    let len = val.length
+    if (len >0){
+        setTimeout(() => {
+            console.log(val[0][0])
+            val = val.slice(1)
+            v = Object.fromEntries(val)
+            return objectIndex(v,t)
+        },t)
+    }
+
+}
+objectIndex(obj,1000)
+
+
+ let arr: number[] = [2,3,4,9]
+ let obj2 = {}
+let str = "bangladesh"
+
+function isIterable(v:any) {
+    if (v[Symbol.iterator]){
+        console.log(`congratulation You are iterable`)
+    }
+    else{
+        console.log(`Sorry You are  Not iterable`)
+    }
+}
+
+isIterable(arr)
+isIterable(obj2)
+isIterable(str)
+
+
+
 
 
 
