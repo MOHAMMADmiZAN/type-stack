@@ -144,9 +144,10 @@ function objectIndex(v:object,t?:number) {
 objectIndex(obj,1000)
 
 
- let arr: number[] = [2,3,4,9]
- let obj2 = {}
-let str = "bangladesh"
+ let arr: (string|number)[] = [2,3,4,9]
+ let obj2:object = {}
+let str:string = "bangladesh"
+let num :number = 12
 
 function isIterable(v:any) {
     if (v[Symbol.iterator]){
@@ -160,6 +161,9 @@ function isIterable(v:any) {
 isIterable(arr)
 isIterable(obj2)
 isIterable(str)
+isIterable(num)
+
+
 
 
 
