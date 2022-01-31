@@ -20,3 +20,9 @@ export interface Person<T extends number> {
     c:CounterUp,
     t:number
 }
+
+type StringNumber = string | number |bigint
+type str = string
+ export interface accumulation {
+     [curr: str]: StringNumber;
+ }
