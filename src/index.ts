@@ -1,6 +1,6 @@
 import {Player} from "./class";
 
-import {accumulation, CounterUpOptions} from "./interface";
+import {arrayAccumulation, CounterUpOptions, objectAccumulation} from "./interface";
 
 const PlayerOne = new Player('Sakib', 25)
 
@@ -187,18 +187,28 @@ let names:string[] = [
     "java",
     "php",
     "php",
+    "php"
 ]
-const acc: accumulation = {};
-
+const acc: objectAccumulation = {};
+const setArray:arrayAccumulation = []
 
 let rate = names.reduce(function (acc,curr) {
 
-    // @ts-ignore
     acc[curr]?acc[curr]++:acc[curr] = 1
     return acc
  },acc)
+console.log(rate)
 
+let set = names.reduce(function (acc,curr){
+    if (acc.includes(curr)){
+        acc.push(curr+Math.floor(Math.random()*100).toString())
+    }else {
+        acc.push(curr)
+    }
+    return acc
+},setArray)
 
+console.log(set) /// set unique
 // make object
 
 
