@@ -1,13 +1,15 @@
 import {Player} from "./class";
 
-import {arrayAccumulation, CounterUpOptions, objectAccumulation} from "./interface";
+import {arrayAccumulation, cName, CounterUpOptions, objectAccumulation} from "./interface";
 
-const PlayerOne = new Player('Sakib', 25)
+const PlayerOne = new Player('Sachin', 40,cName.IN)
 
 const PlayerTwo = new Player('Tamim', 28)
+const PlayerThree = new Player('Afradi',40,cName.PK)
 
 PlayerOne.call()
 PlayerTwo.call()
+PlayerThree.call()
 
 
 // counter-up plugin made in Typescript
@@ -193,22 +195,19 @@ const acc: objectAccumulation = {};
 const setArray:arrayAccumulation = []
 
 let rate = names.reduce(function (acc,curr) {
-
     acc[curr]?acc[curr]++:acc[curr] = 1
     return acc
  },acc)
 console.log(rate)
 
-let set = names.reduce(function (acc,curr){
-    if (acc.includes(curr)){
-        acc.push(curr+Math.floor(Math.random()*100).toString())
-    }else {
+let unique  = names.reduce(function (acc,curr){
+    if (!acc.includes(curr)){
         acc.push(curr)
     }
     return acc
 },setArray)
 
-console.log(set) /// set unique
+console.log(unique) /// set unique
 // make object
 
 

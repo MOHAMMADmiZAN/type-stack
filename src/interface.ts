@@ -17,7 +17,9 @@ export interface Person<T extends number> {
 
 // enum
 export enum cName {
-    BD = "Bangladesh"
+    BD = "Bangladesh",
+    IN = "Indian",
+    PK = "Pakistan"
 }
 
 type CounterUp = (string | HTMLCollection)
