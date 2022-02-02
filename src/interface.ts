@@ -37,3 +37,8 @@ export interface objectAccumulation {
 
 export interface arrayAccumulation extends Array<string> {
 }
+
+ //crete a function interface
+export interface mapCallBack {
+    (v: any, i: number,arr:any[]): any}
+

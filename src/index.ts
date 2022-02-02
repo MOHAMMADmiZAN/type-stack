@@ -1,6 +1,6 @@
 import {Player} from "./class";
 
-import {arrayAccumulation, cName, CounterUpOptions, objectAccumulation} from "./interface";
+import {arrayAccumulation, cName, CounterUpOptions, mapCallBack, objectAccumulation} from "./interface";
 
 const PlayerOne = new Player('Sachin', 40, cName.IN)
 
@@ -50,7 +50,7 @@ counterUp({c: ps, t: 500})
 
 let btn = document.getElementById('btn')
 
-function getRandomColor() {
+function getRandomColor():string {
     const hexLetters = 'abcdef1234567890';
     let hex = '#';
     for (let i = 1; i <= 6; i++) {
@@ -259,10 +259,10 @@ console.log(u)
 
 
  //  map
- function myMap(arr: any[], cb:(v:string,i:number,arr:any[])=>(any|void)) {
+ function myMap(arr: any[], callback:mapCallBack) {
     let a = []
      for (let i = 0; i <arr.length ; i++) {
-        a.push( cb(arr[i],i,arr))
+        a.push( callback(arr[i],i,arr))
      }
      return a
  }
@@ -287,7 +287,7 @@ function findAverageRating(arr: number[]) {
 }
 
 
-// my array red function
+// my array reduce function
 function myReduce(arr: number[], cb: (acc: number, curr: number, i: number, arr: number[]) => number, ac?: number) {
     let acc = ac
     let start = 0
@@ -303,6 +303,17 @@ function myReduce(arr: number[], cb: (acc: number, curr: number, i: number, arr:
 
 let r = findAverageRating(review)
 console.log(r.toPrecision(2))
+
+ // create a function that takes a string and returns a string with the first letter of each word capitalized
+function capitalize(str: string) {
+    let arr = str.split(' ')
+    let newArr = arr.map(function (v) {
+        return v.charAt(0).toUpperCase() + v.slice(1)
+    })
+    return newArr.join(' ')
+}
+
+
 
 
 
