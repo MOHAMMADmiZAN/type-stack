@@ -17,5 +17,8 @@ export   class Player implements Person<number>{
  }
 
 
+
+
+
 }
 

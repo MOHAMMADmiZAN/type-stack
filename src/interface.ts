@@ -42,3 +42,10 @@ export interface arrayAccumulation extends Array<string> {
 export interface mapCallBack {
     (v: any, i: number,arr:any[]): any}
 
+export interface arrayOfObject extends Array<{[curr:string]:any}> {
+
+}
+export interface objectOfObject extends Object {
+    [curr: string]: any
+
+ }
