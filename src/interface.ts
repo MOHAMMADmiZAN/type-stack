@@ -49,3 +49,6 @@ export interface objectOfObject extends Object {
     [curr: string]: any
 
  }
+
+
+
