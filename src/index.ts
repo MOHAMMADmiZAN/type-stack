@@ -1,4 +1,5 @@
 import {Player} from "./class";
+import {Bicycle, Car} from "./Vehicles";
 
 const sakib = new Player("Sakib", 35);
 sakib.call();
@@ -38,6 +39,18 @@ const getUsers = async (): Promise<User[]> => {
         console.log(user.name);
     }
     )
+
+
+ // create new car
+
+let bmw = new Car(100, "BMW", 5);
+let duronto = new Bicycle(100, "Duronto", 5);
+
+bmw.printStatus();
+duronto.printStatus();
+
+
+
 
 
 
