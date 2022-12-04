@@ -37,24 +37,6 @@ export class Vehicle {
         this.speed += 5;
     }
 }
-// Two class Bicycle and Car inherit the properties of Vehicle and have extra two instance variable name and gear. Their constructor will take the name and gear value as input. Design the class and show the status of the vehicle name, speed and gear.
-
-class Car extends Vehicle {
-    gear: number;
-    constructor(speed: number, public name: string, gear: number) {
-        super(speed);
-        this.gear = gear;
-    }
-
-    changeGear() {
-        this.gear++;
-    }
-
-    printStatus() {
-        console.log(`Name: ${this.name}, Speed: ${this.speed}, Gear: ${this.gear}`);
-    }
-}
-
 // Create a Teacher class and a subclass “CSETeacher”. Call Functions of “Teacher” class using object of “CSETeacher” class.
 
 export class Teacher {
