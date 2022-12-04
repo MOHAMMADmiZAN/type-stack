@@ -1,5 +1,6 @@
 import {Player} from "./class";
 import {Bicycle, Car} from "./Vehicles";
+import {CSETeacher} from "./Teachers";
 
 const sakib = new Player("Sakib", 35);
 sakib.call();
@@ -48,7 +49,8 @@ let duronto = new Bicycle(100, "Duronto", 5);
 
 bmw.printStatus();
 duronto.printStatus();
-
+let sakib2 = new CSETeacher("Sakib", 35, "CSE");
+sakib2.print();
 
 
 

@@ -55,3 +55,14 @@ class Car extends Vehicle {
     }
 }
 
+// Create a Teacher class and a subclass “CSETeacher”. Call Functions of “Teacher” class using object of “CSETeacher” class.
+
+export class Teacher {
+    constructor(public name: string, public age: number, public subject: string) {}
+
+    print() {
+        console.log(`My name is ${this.name}, I am ${this.age} years old and I teach ${this.subject}`);
+    }
+}
+
+
