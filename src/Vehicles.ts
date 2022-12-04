@@ -36,3 +36,26 @@ export class Bicycle extends Vehicle {
     }
 }
 
+// Create a Teacher class and a subclass “CSETeacher”. Call Functions of “Teacher” class using object of “CSETeacher” class.
+
+class Teacher {
+    constructor(public name: string, public age: number) {
+    }
+
+    print() {
+        console.log(`Name: ${this.name}, Age: ${this.age}`);
+    }
+}
+
+class CSETeacher extends Teacher {
+    constructor(name: string, age: number, public subject: string) {
+        super(name, age);
+    }
+
+    print() {
+        console.log(`Name: ${this.name}, Age: ${this.age}, Subject: ${this.subject}`);
+    }
+}
+
+const teacher = new CSETeacher("Sakib", 35, "CSE");
+teacher.print();
