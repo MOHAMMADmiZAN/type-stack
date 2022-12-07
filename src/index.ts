@@ -8,7 +8,8 @@ sakib.call();
 // generics
  const  objTemp =  <T>(obj: T)=>{
     // genarate random id
-    const id = Math.random().toString(16);
+    let id = Math.random().toString(16);
+    id = id.split(".")[1];
     return {
         id,
         ...obj
@@ -19,6 +20,7 @@ const obj2 = objTemp<string>("Hello World");
 const obj3 = objTemp<number>(1);
 
 console.log(obj2);
+console.log(obj3)
 
  // create  user interface and get users from api
  interface  User {
@@ -37,7 +39,7 @@ const getUsers = async (): Promise<User[]> => {
 
     const users =  await  getUsers();
     users.forEach(user => {
-        console.log(user.name);
+        console.log(user.email);
     }
     )
 
